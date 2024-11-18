@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Alamat</title>
+    <style>
+        /* Mengatur tampilan body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Latar belakang putih */
+            color: #000; /* Teks hitam */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Form Input */
+        .form-container {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .form-container input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #8f5bbd; /* Warna border yang senada dengan tombol */
+            width: 100%;
+            font-size: 16px;
+            background-color: white; /* Latar belakang putih pada input */
+            color: #000; /* Warna teks hitam agar terlihat jelas */
+            box-sizing: border-box; /* Menyertakan padding dalam perhitungan lebar */
+        }
+
+        .form-container input:focus {
+            outline: none; /* Menghilangkan outline default pada fokus input */
+            border-color: #8f5bbd; /* Warna border berubah saat input mendapat fokus */
+        }
+
+        .form-container button {
+            background-color: #8f5bbd; /* Warna latar belakang tombol */
+            color: #fff; /* Teks putih pada tombol */
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box; /* Menyertakan padding dalam perhitungan lebar */
+        }
+
+        .form-container button:hover {
+            background-color: #8f5bbd; /* Warna tombol saat hover */
+        }
+
+        /* Teks judul form (Masukkan Nama dan Nomor Telepon) */
+        .form-container h2 {
+            text-align: center; /* Menengahkan teks */
+            margin-bottom: 20px; /* Memberikan jarak antara teks dan input form */
+            font-size: 18px; /* Ukuran font yang sesuai */
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: flex-start; /* Menempatkan logo di pojok kiri */
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #000000; /* Warna navbar hitam */
+        }
+
+        .navbar img.logo {
+            width: 55px;
+            height: 50px;
+            margin-left: -10px; /* Geser logo sedikit ke kiri */
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Link Kembali */
+        .back-link {
+            margin-top: 10px; /* Mengurangi jarak atas, mendekatkan ke tombol */
+            text-decoration: none;
+            color: #8f5bbd; /* Warna pink untuk link */
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000; /* Latar belakang footer hitam */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 12px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar dengan logo SJ di pojok kiri -->
+    <div class="navbar">
+        <!-- Menambahkan logo dengan ukuran yang sesuai -->
+        <img src="NUSA INA.png" alt="Logo SJ" class="logo" />
+    </div>
+
+    <!-- Formulir untuk Input Nama dan Nomor Telepon -->
+    <div class="form-container">
+        <h2>Masukkan Nama dan Nomor Telepon Untuk Mendapatkan Alamat!</h2>
+        <form id="formAlamat" onsubmit="return saveData()">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" required>
+
+            <label for="telepon">Nomor Telepon</label>
+            <input type="tel" id="telepon" required>
+
+            <button type="submit">Simpan dan Lihat Alamat</button>
+
+            <!-- Tautan Kembali (ditempatkan setelah tombol) -->
+            <a href="cekpaket.html" class="back-link">Kembali</a>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 NusaIna By. Dhani Mochtar
+    </footer>
+
+    <script>
+        // Fungsi untuk menyimpan data ke localStorage
+        function saveData() {
+            var nama = document.getElementById("nama").value;
+            var telepon = document.getElementById("telepon").value;
+
+            // Simpan nama dan telepon ke localStorage
+            localStorage.setItem("nama", nama);
+            localStorage.setItem("wa", telepon);
+
+            // Arahkan ke halaman informasi alamat setelah data disimpan
+            window.location.href = "prosesalamat.html";
+
+            return false; // Mencegah pengiriman form
+        }
+    </script>
+</body>
+
+</html>
